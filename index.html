@@ -151,6 +151,124 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-剑指offer 1：二叉树的镜像" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/09/剑指offer 1：二叉树的镜像/">剑指offer 1：二叉树的镜像</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/09/剑指offer 1：二叉树的镜像/" class="archive-article-date">
+  	<time datetime="2018-05-09T14:47:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.nowcoder.com/ta/coding-interviews?page=1" target="_blank" rel="noopener">“剑指Offer”</a>是牛客网的一个数据结构专项练习。</p>
+<p>本栏目记录解题思路和相关代码，希望对读者有帮助。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>操作给定的二叉树，将其变换为源二叉树的镜像。</p>
+<h3 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述:"></a>输入描述:</h3><p>二叉树的镜像定义：</p>
+<ul>
+<li>源二叉树</li>
+</ul>
+<center>    8<br>           /  \<br>          6   10<br>         / \  / \<br>        5  7 9 11</center>
+
+<ul>
+<li>镜像二叉树</li>
+</ul>
+<center><br>            8<br>           /  \<br>          10   6<br>         / \  / \<br>        11 9 7  5</center>
+
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路:"></a>解题思路:</h3><p>本题考察二叉树的操作。比较容易想到对结点进行操作，只需要每个结点对左节点和右节点进行交换即可。因此需要3个步骤：</p>
+<ol>
+<li>对某个节点进行左右孩子的节点交换；</li>
+<li>遍历所有节点</li>
+<li>中止程序</li>
+</ol>
+<h3 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析:"></a>代码分析:</h3><p>按照以上算法思想，写出的C++代码如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Copyright (c) 2018 Tony Chen. All rights reserved.</span></span><br><span class="line"><span class="comment">/*#include &lt;iostream&gt;</span></span><br><span class="line"><span class="comment">using namespace std;</span></span><br><span class="line"><span class="comment">struct TreeNode &#123;</span></span><br><span class="line"><span class="comment">    int val;</span></span><br><span class="line"><span class="comment">    struct TreeNode *left;</span></span><br><span class="line"><span class="comment">    struct TreeNode *right;</span></span><br><span class="line"><span class="comment">    TreeNode(int x) :</span></span><br><span class="line"><span class="comment">            val(x), left(NULL), right(NULL) &#123;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;;*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Mirror</span><span class="params">(TreeNode *pRoot)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(pRoot == <span class="literal">NULL</span>)<span class="keyword">return</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//exchange left node and right node </span></span><br><span class="line">        TreeNode *temp = pRoot-&gt;left;</span><br><span class="line">        pRoot-&gt;left = pRoot-&gt;right;</span><br><span class="line">        pRoot-&gt;right = temp;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//traverse</span></span><br><span class="line">        Mirror(pRoot-&gt;left);</span><br><span class="line">        Mirror(pRoot-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>Python代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Copyright (c) 2018 Tony Chen. All rights reserved.</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="comment"># 返回镜像树的根节点</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Mirror</span><span class="params">(self, root)</span>:</span></span><br><span class="line">        <span class="keyword">if</span>(root == <span class="keyword">None</span>):<span class="keyword">return</span> root</span><br><span class="line">        root.left, root.right = root.right, root.left;</span><br><span class="line">        Solution.Mirror(self, root.left)</span><br><span class="line">        Solution.Mirror(self, root.right)</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">剑指Offer</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">二叉树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">面试思路</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/剑指Offer//" class="article-tag-list-link color3">剑指Offer</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/09/剑指offer 1：二叉树的镜像/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-我的测试文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -388,6 +506,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">面试思路</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
