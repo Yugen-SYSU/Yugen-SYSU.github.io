@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/Yugen-SYSU/Yugen-SYSU.github.io">
-  <title>Tag: 面试思路 | Yugen的博客</title>
+  <title>剑指offer 2：链表中环的入口的结点 | Yugen的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="网页描述">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yugen的博客">
-<meta property="og:url" content="https://github.com/Yugen-SYSU/Yugen-SYSU.github.io/tags/面试思路/index.html">
+  <meta name="description" content="“剑指Offer”是牛客网的一个数据结构专项练习。 本栏目记录解题思路和相关代码，希望对读者有帮助。 题目描述一个链表中包含环，请找出该链表的环的入口结点。 解题思路:注意：链表是单链表。 本题考察对链表的理解和相关操作。找到链表的入口结点。其中一个方法是设置两个指针，指针a指向头结点，指针b从头结点向前前进length个结点，length为环的长度，令a、b不断往前遍历，它们相遇的结点就是环的入">
+<meta name="keywords" content="剑指OFFER,数据结构,链表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指offer 2：链表中环的入口的结点">
+<meta property="og:url" content="https://github.com/Yugen-SYSU/Yugen-SYSU.github.io/2018/05/09/剑指offer 2：链表中环的入口的结点/index.html">
 <meta property="og:site_name" content="Yugen的博客">
-<meta property="og:description" content="网页描述">
+<meta property="og:description" content="“剑指Offer”是牛客网的一个数据结构专项练习。 本栏目记录解题思路和相关代码，希望对读者有帮助。 题目描述一个链表中包含环，请找出该链表的环的入口结点。 解题思路:注意：链表是单链表。 本题考察对链表的理解和相关操作。找到链表的入口结点。其中一个方法是设置两个指针，指针a指向头结点，指针b从头结点向前前进length个结点，length为环的长度，令a、b不断往前遍历，它们相遇的结点就是环的入">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-09T15:59:32.116Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yugen的博客">
-<meta name="twitter:description" content="网页描述">
+<meta name="twitter:title" content="剑指offer 2：链表中环的入口的结点">
+<meta name="twitter:description" content="“剑指Offer”是牛客网的一个数据结构专项练习。 本栏目记录解题思路和相关代码，希望对读者有帮助。 题目描述一个链表中包含环，请找出该链表的环的入口结点。 解题思路:注意：链表是单链表。 本题考察对链表的理解和相关操作。找到链表的入口结点。其中一个方法是设置两个指针，指针a指向头结点，指针b从头结点向前前进length个结点，length为环的长度，令a、b不断往前遍历，它们相遇的结点就是环的入">
   
     <link rel="alternative" href="/atom.xml" title="Yugen的博客" type="application/atom+xml">
   
@@ -149,36 +151,67 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-剑指offer 2：链表中环的入口的结点" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/08/剑指offer 1：二叉树的镜像/" class="archive-article-date">
-  	<time datetime="2018-05-08T14:47:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/08/剑指offer 1：二叉树的镜像/">剑指offer 1：二叉树的镜像</a>
+    <h1 class="article-title" itemprop="name">
+      剑指offer 2：链表中环的入口的结点
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/05/09/剑指offer 2：链表中环的入口的结点/" class="archive-article-date">
+  	<time datetime="2018-05-09T13:13:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.nowcoder.com/ta/coding-interviews?page=1" target="_blank" rel="noopener">“剑指Offer”</a>是牛客网的一个数据结构专项练习。</p>
+<p>本栏目记录解题思路和相关代码，希望对读者有帮助。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个链表中包含环，请找出该链表的环的入口结点。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路:"></a>解题思路:</h3><p>注意：链表是单链表。</p>
+<p>本题考察对链表的理解和相关操作。找到链表的入口结点。其中一个方法是设置两个指针，指针a指向头结点，指针b从头结点向前前进length个结点，length为环的长度，令a、b不断往前遍历，它们相遇的结点就是环的入口。</p>
+<p>完成上述操作需要取得length的值。取得length的方法是：初始化length为1，令两个指针a、b在环内指向同一个节点，然后b开始向前移动，每移动一次length+1，直到a、b再一次相等，得到的length即为环的长度。</p>
+<p>完成上述操作的前提是：找到两个在环内的指针。方法为设置两个指针a、b，a每次移动一个节点，为慢指针；b每次移动两个节点，为快指针。令a、b从头结点开始移动，当两个节点相遇时，它们必在环内。</p>
+<p>整理上述步骤，归纳算法的做法为：</p>
+<ol>
+<li>设置快慢指针a、b指向头结点，a每次向前移动一个节点，b移动两个。遍历链表使其在环内相遇；</li>
+<li>令length=1,a不动，b继续向前移动，每次移动length+1，直到两个节点再次相遇。求得环的长度length；</li>
+<li>重新初始化a、b指向头指针，并使b向前移动length个节点。之后a、b每次向前移动一个节点，遍历链表使其在环内相遇，此时a、b就是环的入口。</li>
+</ol>
+<h3 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析:"></a>代码分析:</h3><p>按照以上算法思想，写出的C++代码如下：<br><code>`</code>c<br>//Copyright (c) 2018 Tony Chen. All rights reserved.<br>/<em><br>struct ListNode {<br>    int val;<br>    struct ListNode </em>next;<br>    ListNode(int x) :<br>        val(x), next(NULL) {<br>    }<br>};<br><em>/<br>class Solution {<br>public:<br>    ListNode</em> EntryNodeOfLoop(ListNode<em> pHead)<br>    {<br>        if(pHead == NULL)return NULL;<br>        ListNode</em> slow = pHead;<br>        ListNode* fast = pHead-&gt;next;<br>        //enter the loop<br>        while(slow != NULL &amp;&amp; fast != NULL &amp;&amp; slow != fast)<br>        {<br>            slow = slow-&gt;next;<br>            fast = fast-&gt;next;<br>            if(fast != NULL)fast = fast-&gt;next;<br>        }<br>        //find the length of the loop<br>        int len = 1;<br>        if(fast != NULL)fast = fast-&gt;next;<br>        else return NULL;</p>
+<pre><code>    while(slow != fast)
+    {
+        len++;
+        fast = fast-&gt;next;
+    }
+    //find the entry of the loop
+    slow = pHead;
+    while(len--)slow = slow-&gt;next;
+    fast = pHead;
+    while(slow != NULL &amp;&amp; fast != NULL &amp;&amp; slow != fast)
+    {
+        slow = slow-&gt;next;
+        fast = fast-&gt;next;
+    }
+
+    return fast;
+}
+</code></pre><p>};</p>
+<p>[1]</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -192,17 +225,13 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">二叉树</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">面试思路</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">链表</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -215,17 +244,104 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/Yugen-SYSU/Yugen-SYSU.github.io/2018/05/09/剑指offer 2：链表中环的入口的结点/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/05/09/台湾自由行攻略/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">台湾自由行</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -248,9 +364,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
